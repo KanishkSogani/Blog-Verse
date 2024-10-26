@@ -4,5 +4,19 @@ import Container from "./Container/Container";
 import Logo from "./Logo";
 import LogoutBtn from "./Header/LogoutBtn";
 import RTE from "./RTE";
-
-export { Header, Footer, Container, Logo, LogoutBtn, RTE };
+import Login from "./Login";
+import Signup from "./Signup";
+import PostForm from "./PostForm/PostForm";
+import PostCard from "./PostCard";
+export {
+  Header,
+  Footer,
+  Container,
+  Logo,
+  LogoutBtn,
+  RTE,
+  Login,
+  Signup,
+  PostForm,
+  PostCard,
+};
