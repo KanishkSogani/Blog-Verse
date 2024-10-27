@@ -2,15 +2,23 @@ import { useState, useEffect } from "react";
 import appwriteService from "../appwrite/config";
 import { Container, PostCard } from "../components";
 import { useNavigate } from "react-router-dom";
+import { set } from "react-hook-form";
 
 function Home() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    appwriteService.getPosts().then((posts) => setPosts(posts.docments));
+    appwriteService.getPosts().then((posts) => {
+      if (posts) {
+        setPosts(posts.documents);
+      } else {
+        setPosts([]);
+      }
+    });
+    console.log(posts);
   }, []);
 
-  if (posts.length === 0) {
+  if (!posts) {
     return (
       <div className="w-full py-8">
         <Container>

@@ -6,7 +6,7 @@ export class Service {
   databases;
   bucket;
 
-  Service() {
+  constructor() {
     this.client
       .setEndpoint(conf.appwriteUrl)
       .setProject(conf.appwriteProjectID);
@@ -54,7 +54,7 @@ export class Service {
 
   async deletePost(slug) {
     try {
-      await this.databases.deletePost(
+      await this.databases.deleteDocument(
         conf.appwriteDatabaseID,
         conf.appwriteCollectionID,
         slug
@@ -102,7 +102,7 @@ export class Service {
         file
       );
     } catch (error) {
-      console.log("Appwrite Service :: uploadFile Error ", error);
+      console.log("Appwrite serive :: uploadFile :: error", error);
       return false;
     }
   }
